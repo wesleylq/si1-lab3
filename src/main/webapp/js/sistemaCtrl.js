@@ -6,13 +6,13 @@ angular.module("sistema").controller("sistemaCtrl", function ($scope, $window, $
       
     
     carregarPlaylists = function () {
-    	$http.get("http://localhost:8080/playlists").then(function(response) {
+    	$http.get("https://dashboard.heroku.com/playlists").then(function(response) {
             $scope.playlists = response.data;
         });
 	};
 	
 	 carregarArtistas = function () {
-	    	$http.get("http://localhost:8080/artistas").then(function(response) {
+	    	$http.get("https://dashboard.heroku.com/artistas").then(function(response) {
 	            $scope.artistas = response.data;
 	        });
 		};
@@ -23,7 +23,7 @@ angular.module("sistema").controller("sistemaCtrl", function ($scope, $window, $
     
 	$scope.adicionaPlayList = function (playlistNome) {
     	
-    $http({ url: "http://localhost:8080/playlists",
+    $http({ url: "https://dashboard.heroku.com/playlists",
             method: "POST",
             data: {"id": playlistNome, "nome": playlistNome}
         }); 
@@ -34,7 +34,7 @@ angular.module("sistema").controller("sistemaCtrl", function ($scope, $window, $
     $scope.excluiPlayList = function (playlist) {
     	    
     if (confirm("Deseja realmente excluir?") == true){
-    	 $http({ url: "http://localhost:8080/playlists/" + playlist.nome,
+    	 $http({ url: "https://dashboard.heroku.com/playlists/" + playlist.nome,
              method: "DELETE",
           });	
     }	 
@@ -45,7 +45,7 @@ angular.module("sistema").controller("sistemaCtrl", function ($scope, $window, $
     
     $scope.adicionaArtista = function (artistaNome) {
         
-        $http({ url: "http://localhost:8080/artistas",
+        $http({ url: "https://dashboard.heroku.com/artistas",
             method: "POST",
             data: {"id": artistaNome, "nome": artistaNome}
         }); 
@@ -54,7 +54,7 @@ angular.module("sistema").controller("sistemaCtrl", function ($scope, $window, $
         
     $scope.excluiArtista = function (artista) {
    	 
-        $http({ url: "http://localhost:8080/artistas/" + artista.nome,
+        $http({ url: "https://dashboard.heroku.com/artistas/" + artista.nome,
                 method: "DELETE",
              });
           
@@ -62,7 +62,7 @@ angular.module("sistema").controller("sistemaCtrl", function ($scope, $window, $
         
     $scope.adicionaMusica = function (musica, album, artista) {
         	
-    	$http({ url: "http://localhost:8080/artistas/" + artista + "/musicas" ,
+    	$http({ url: "https://dashboard.heroku.com/artistas/" + artista + "/musicas" ,
                 method: "POST",
                 data: {"id": musica, "nome": musica, "album": album}
                 }); 
@@ -71,7 +71,7 @@ angular.module("sistema").controller("sistemaCtrl", function ($scope, $window, $
 
     $scope.adicionaMusicaPlayList = function (playlist,artista,musica) {
     	
-    	$http.get("http://localhost:8080/artistas/" + artista + "/musicas/" + musica ).then(function (response) {
+    	$http.get("https://dashboard.heroku.com/artistas/" + artista + "/musicas/" + musica ).then(function (response) {
     		
     		$http({ url: "http://localhost:8080/playlists/" + playlist + "/musicas" ,
                 method: "POST",
@@ -85,7 +85,7 @@ angular.module("sistema").controller("sistemaCtrl", function ($scope, $window, $
     $scope.excluiMusica = function (playlist, musica) {
 
         if (confirm("Deseja realmente excluir?") == true) {
-        	$http({ url: "http://localhost:8080/playlists/" + playlist.nome + "/musicas/" + musica.nome,
+        	$http({ url: "https://dashboard.heroku.com/playlists/" + playlist.nome + "/musicas/" + musica.nome,
                 method: "DELETE",
              });
         }
