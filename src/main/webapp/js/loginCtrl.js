@@ -5,7 +5,7 @@ angular.module("sistema").controller("loginCtrl", function ($scope, $window, $ht
     $scope.usuarios = [];
         
     carregarUsuarios = function () {
-	   	$http.get("http://localhost:8080/usuarios").then(function(response) {
+	   	$http.get("https://dashboard.heroku.com/usuarios").then(function(response) {
 	           $scope.usuarios = response.data;
 	        });
 		};	
