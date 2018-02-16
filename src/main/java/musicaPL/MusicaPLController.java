@@ -38,18 +38,10 @@ public class MusicaPLController {
 	}
     
     
-    
-    
-    
-    
-    
-    
-    
-    /*
-    @RequestMapping(value = "{artistaId}/musicas/{id}", method = RequestMethod.DELETE)
-    public void deletePlaylist(@PathVariable String id, @PathVariable String artistaId) {
-    	musicaService.deleteMusica(id);
-    }*/
+    @RequestMapping(value = "/playlists/{playlistId}/musicas/{id}", method = RequestMethod.DELETE)
+    public void deleteMusica(@PathVariable String id, @PathVariable String playlistId) {
+    	musicaPLService.deleteMusica(id);
+    }
 
 
 }

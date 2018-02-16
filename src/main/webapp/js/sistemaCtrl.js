@@ -32,10 +32,13 @@ angular.module("sistema").controller("sistemaCtrl", function ($scope, $window, $
     
     
     $scope.excluiPlayList = function (playlist) {
-    	 
-    $http({ url: "http://localhost:8080/playlists/" + playlist.nome,
-            method: "DELETE",
-         });
+    	    
+    if (confirm("Deseja realmente excluir?") == true){
+    	 $http({ url: "http://localhost:8080/playlists/" + playlist.nome,
+             method: "DELETE",
+          });	
+    }	 
+   
       
     };
     
@@ -78,6 +81,15 @@ angular.module("sistema").controller("sistemaCtrl", function ($scope, $window, $
     	
     
     };
+    
+    $scope.excluiMusica = function (playlist, musica) {
+
+        if (confirm("Deseja realmente excluir?") == true) {
+        	$http({ url: "http://localhost:8080/playlists/" + playlist.nome + "/musicas/" + musica.nome,
+                method: "DELETE",
+             });
+        }
+    }
     
     $scope.mostraArtistaInfo = function (artista) {
         $scope.artistaInfo = artista;

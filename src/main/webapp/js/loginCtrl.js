@@ -35,7 +35,9 @@ angular.module("sistema").controller("loginCtrl", function ($scope, $window, $ht
     	    	 
     	 if(contemUsuario($scope.usuarios, email, senha) === true){
     		 $window.location.href = "/menu.html"; 
-    	 };
+    	 }else{
+    		 window.alert("Dados Inválidos, tente novamente!");
+    	 }
     	 
      };
      

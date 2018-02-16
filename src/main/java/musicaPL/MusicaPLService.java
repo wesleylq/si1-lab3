@@ -26,5 +26,10 @@ public class MusicaPLService {
 		musicaRepository.save(musica);
 				
 	}
+
+	public void deleteMusica(String id) {
+		musicaRepository.delete(id);
+		
+	}
 	
 }
