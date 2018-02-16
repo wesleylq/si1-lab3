@@ -1,0 +1,45 @@
+<div class="jumbotron">
+
+    <input text="search" class="form-control" placeholder="Pesquisa..." ng-model="pesquisa"/>
+
+    <div>
+        <table class="table">
+
+            <th >Favoritar </th>
+            <th>Artista</th>
+            <th>Avaliação</th>
+
+            <tr ng-repeat= "artista in artistas | filter: pesquisa" align="left">
+                <td><input type= "checkbox" ng-model="artista.favorito"> </td>
+                <td><a ng-href = "#!/pesquisar"  ng-click="mostraArtistaInfo(artista)">{{ artista.nome }}  </a></td>
+                <td><input type="number" class="form-control-feedback" ng-model="artista.nota" placeholder="nota..." min="0" max="5"></td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div class = "container bg-primary" align="left" ng-show="true">
+        <thead>
+        <table class="table">
+            <tr>
+                <h3>Artista: {{artistaInfo.nome}}</h3>
+
+            </tr>
+            </thead>
+            <thead>
+            <tr>
+                <h3>Musicas:</h3>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat= "musica in artistaInfo.musicas">
+                <td>{{musica.nome}}</td>
+            </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

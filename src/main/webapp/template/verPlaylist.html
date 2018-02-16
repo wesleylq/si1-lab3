@@ -1,0 +1,43 @@
+<div class = "jumbotron">
+
+
+    <table align="center">
+
+        <tr ng-repeat="playlist in playlists | filter:''">
+
+            <td><a href="#!verPlaylist" ng-click="mostraPlayListInfo(playlist)"> <h3>{{playlist.nome}}</h3></a></td>
+            <td><a href="#{{playlist.nome}}"><span class="glyphicon glyphicon-trash"  ng-click= "excluiPlayList(playlist)"></span></a></td>
+
+        </tr>
+    </table>
+
+
+    <div class="container" ng-show="true">
+        <table class="table" ng-repeat=" musica in playlistInfo.musicas | filter:''">
+
+            <h3>PlayList: {{playlistInfo.nome}}</h3>
+
+            <tr ng-repeat=" musica in playlistInfo.musicas | filter:''" align="left">
+                <thead>
+                <tr>
+                    <th>Artista: {{ musica.artista}}</th>
+                </tr>
+                </thead>
+
+                <thead>
+                <tr>
+                    <th>Musica: {{ musica.nome }}</th>
+                    <th><a href="#"><span class="glyphicon glyphicon-trash" ng-click= "excluiMusica(playlistInfo,musica)"></span></a></th>
+                </tr>
+                </thead>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+</div>
+

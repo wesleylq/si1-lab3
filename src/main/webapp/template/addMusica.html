@@ -1,0 +1,20 @@
+<div class="jumbotron">
+    <form name = "addMusForm">
+        <input class = "form-control" ng-model="musica" ng-required="true" placeholder="Nome do musica..."/>
+        <input class = "form-control" ng-model="artista" ng-required="true" placeholder="Nome do artista..."/>
+        <input class = "form-control" ng-model="album" ng-required="true" placeholder="Nome do album..."/>
+        
+        <button type="button" class="btn btn-primary btn-block btn-lg" ng-disabled="addMusForm.$invalid" ng-click= "adicionaMusica(musica,album,artista)">Adicionar Musica ao Sistema</button>
+    </form>
+</div>
+
+<div class="jumbotron">
+    <form name = "addMusPLForm">
+
+        <input class = "form-control" ng-model="playlistNome" ng-required="true" placeholder="Nome da PlayList..."/>
+        <input class = "form-control" ng-model="musicaNome" ng-required="true" placeholder="Nome do musica..."/>
+        <input class = "form-control" ng-model="artistaNome" ng-required="true"  placeholder="Nome do artista..."/>
+
+        <button type="button" class="btn btn-primary btn-block btn-lg" ng-disabled="addMusPLForm.$invalid" ng-click= "adicionaMusicaPlayList(playlistNome,artistaNome,musicaNome)">Adicionar Musica a uma PlayList</button>
+    </form>
+</div>
