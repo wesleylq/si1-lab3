@@ -23,7 +23,7 @@ angular.module("sistema").controller("loginCtrl", function ($scope, $window, $ht
     
     $scope.adicionaUsuario = function (nome, email, senha) {
     	   	
-        $http({ url: "http://localhost:8080/usuarios",
+        $http({ url: "https://dashboard.heroku.com/usuarios",
                 method: "POST",
                 data: {"id": nome, "nome": nome, "email": email, "senha":senha }
             });
