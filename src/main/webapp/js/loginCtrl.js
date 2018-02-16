@@ -5,7 +5,7 @@ angular.module("sistema").controller("loginCtrl", function ($scope, $window, $ht
     $scope.usuarios = [];
         
     carregarUsuarios = function () {
-	   	$http.get("https://dashboard.heroku.com/usuarios").then(function(response) {
+	   	$http.get("https://si1-lab3-plm.herokuapp.com/usuarios").then(function(response) {
 	           $scope.usuarios = response.data;
 	        });
 		};	
@@ -23,7 +23,7 @@ angular.module("sistema").controller("loginCtrl", function ($scope, $window, $ht
     
     $scope.adicionaUsuario = function (nome, email, senha) {
     	   	
-        $http({ url: "https://dashboard.heroku.com/usuarios",
+        $http({ url: "https://si1-lab3-plm.herokuapp.com/usuarios",
                 method: "POST",
                 data: {"id": nome, "nome": nome, "email": email, "senha":senha }
             });
