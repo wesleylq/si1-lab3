@@ -13,9 +13,10 @@
 
 
     <div class="container" ng-show="true">
+        <h4>Playlists</h4>
         <table class="table" ng-repeat=" musica in playlistInfo.musicas | filter:''">
 
-            <h3>PlayList: {{playlistInfo.nome}}</h3>
+            <h5>nome da playList: {{playlistInfo.nome}}</h5>
 
             <tr ng-repeat=" musica in playlistInfo.musicas | filter:''" align="left">
                 <thead>
