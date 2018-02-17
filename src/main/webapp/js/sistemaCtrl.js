@@ -73,7 +73,7 @@ angular.module("sistema").controller("sistemaCtrl", function ($scope, $window, $
     	
     	$http.get("https://si1-lab3-plm.herokuapp.com/artistas/" + artista + "/musicas/" + musica ).then(function (response) {
     		
-    		$http({ url: "http://localhost:8080/playlists/" + playlist + "/musicas" ,
+    		$http({ url: "https://si1-lab3-plm.herokuapp.com/playlists/" + playlist + "/musicas" ,
                 method: "POST",
                 data: {"id":response.data["id"], "nome":response.data["nome"], "album":response.data["album"], "artista":artista}
                 }); 
